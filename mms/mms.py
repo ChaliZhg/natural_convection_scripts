@@ -162,7 +162,7 @@ for case in range(len(orders)):
     # t is simulation start time
     t = 4.0
     # steps to run
-    steps = 1.0e3
+    steps = 1.0e2
     # T is simulation stop time
     T = t + dt*steps
     for nx in nxs:
