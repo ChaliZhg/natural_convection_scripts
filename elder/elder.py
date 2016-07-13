@@ -69,6 +69,7 @@ def elder_solver(Ra, dt, nx, plot_slu=False, porder=0):
     # normal direction
     n = FacetNormal(mesh)
 
+    # temperature-dependent buoyancy (right-hand-side source term in Eq. 7)
     def gravity(u):
         val = as_vector([0.0, Ra*u])
         return val
@@ -79,6 +80,7 @@ def elder_solver(Ra, dt, nx, plot_slu=False, porder=0):
     # weak form of flow equation
     F_flo = nabla_div(uu)*q*dx
 
+    # penalty term
     alpha = Constant(5.0)
     if porder == 1:
         alpha = Constant(100.0)
